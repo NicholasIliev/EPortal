@@ -4,17 +4,34 @@ using EPortal.Services;
 
 namespace EPortal.Tests
 {
-    public class Tests
+    [TestFixture]
+    public class UserServiceTests
     {
-        [SetUp]
-        public void Setup()
+        [Test]
+        public void RegisterUser_ValidUser_ShouldSucceed()
         {
+            // Arrange
+            UserService userService = new UserService();
+            User user = new User { Username = "testuser", Password = "password"};            
+
+            // Act 
+            bool result = userService.RegisterUser(user);
+
+            // Assert
+            Assert.IsTrue(result);
         }
 
         [Test]
-        public void Test1()
+        public void RegisterUser_EmptyUsername_ShouldFail()
         {
-            Assert.Pass();
+            // TODO
         }
+
+        [Test]
+        public void RegisterUser_DuplicateUsername_ShouldFail()
+        {
+            // TODO
+        }
+
     }
 }

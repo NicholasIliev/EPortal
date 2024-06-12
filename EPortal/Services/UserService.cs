@@ -1,6 +1,13 @@
-﻿namespace EPortal.Services
+﻿using System;
+using EPortal.Models;
+
+namespace EPortal.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
+        public bool RegisterUser(User user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
